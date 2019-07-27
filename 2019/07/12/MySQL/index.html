@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">MySQL | RJman&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "RJman部落阁";
+  mashiro_option.author_name = "部落阁";
+  mashiro_option.site_url = "https://rjman.top";
+  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://c-ssl.duitang.com/uploads/item/201907/12/20190712213125_lJURG.jpeg,https://c-ssl.duitang.com/uploads/item/201907/12/20190712213125_UrjCN.jpeg,https://c-ssl.duitang.com/uploads/item/201907/12/20190712220517_4AWhK.jpeg,https://c-ssl.duitang.com/uploads/item/201907/12/20190712215703_2PwSw.jpeg,https://c-ssl.duitang.com/uploads/item/201907/12/20190712215703_EHtyZ.jpeg,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(3).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(8).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="https://rjman.top">
+          <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>抖机灵(ง •_•)ง被通缉</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="http://github.com/306714577" target="_blank" class="social-github" title="github">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/github.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="sina">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/sina.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="wangyiyun">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="zhihu">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="http://weibo.com/mashirozx?is_all=1" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/wechat.jpg">
+                  </div>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">RJman</span>
+            <span class="shironeko">部落阁</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/技术/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/生活/">
+                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          生活
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/资源/">
+                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                          资源
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/转载/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags/悦读/">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/bangumi/">
+                          <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                          番组
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/tags/图集/">
+                          <i class="fa fa-photo" aria-hidden="true"></i>
+                          图集
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友人帐
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/donate/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+                    赞赏
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/lab/">
+                          <i class="fa fa-cogs" aria-hidden="true"></i>
+                          Lab
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/client/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+                    客户端
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/atom.xml">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+                    RSS
+                  </span>
+                </a>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://c-ssl.duitang.com/uploads/item/201907/12/20190712211031_SdMnU.jpeg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://c-ssl.duitang.com/uploads/item/201907/12/20190712211031_SdMnU.jpeg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      MySQL</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://rjman.top">
+            <img src="https://b-ssl.duitang.com/uploads/item/201703/05/20170305112110_2GWUr.jpeg">
+          </a>
+        </span>
+        <span>
+          <a href="https://rjman.top">RJman</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-7-12<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="MySQL-学习笔记"><a href="#MySQL-学习笔记" class="headerlink" title="MySQL 学习笔记"></a>MySQL 学习笔记</h1><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><ol>
+<li><p>如何使用终端操作</p>
+</li>
+<li><p>如何使用可视化工具操作</p>
+</li>
+<li><p>如何在编程语言中操作数据库</p>
+</li>
+</ol>
+<h2 id="第一章：终端打开MySQL"><a href="#第一章：终端打开MySQL" class="headerlink" title="第一章：终端打开MySQL"></a>第一章：终端打开MySQL</h2><h3 id="MacOS下"><a href="#MacOS下" class="headerlink" title="MacOS下"></a>MacOS下</h3><ol>
+<li><p>terminal下打开Mysql:</p>
+<pre><code class="shell"> cd /usr/local/mysql/bin
+ ls
+ ./mysql -u root -p 
+</code></pre>
+</li>
+<li><p>添加环境变量,便于使用</p>
+<pre><code class="shell"> touch .bash_profile 创建用户环境变量文件
+ vim .bash_profile
+</code></pre>
+</li>
+<li><p>编辑内容，在最后面部分添加</p>
+<pre><code class="shell"> PATH=$PATH:/usr/local/mysql/bin
+</code></pre>
+<p> 添加完成后，按esc键，然后输入:<code>wq (shift+z double)</code>进行保存退出。<br></p>
+</li>
+<li><p>在主目录 <em>～</em> 生效环境变量</p>
+<pre><code class="shell"> source ~/.bash_profile
+</code></pre>
+</li>
+<li><p>以后打开只需要在terminal</p>
+<pre><code class="shell"> mysql -u root -p
+</code></pre>
+</li>
+</ol>
+<h2 id="第二章：数据库基本操作"><a href="#第二章：数据库基本操作" class="headerlink" title="第二章：数据库基本操作"></a>第二章：数据库基本操作</h2><ol>
+<li>登陆数据库   (mysql -u -p)<br><code>source ~/.bash_profile</code><br><code>mysql -u root -p</code></li>
+<li>查看数据库服务器上的所有数据库 或 数据库中的数据表  (show)<br><code>show databases;</code><br><code>show databases;</code></li>
+<li><p>如何选中并操作某个数据库 (use)</p>
+<pre><code class="sql"> use sys;
+ mysql&gt; select * from 2017_students where 序号 &lt; 10 limit 5;
+ +--------+-------------+-----------+--------+
+ | 序号   | 学号        | 姓名      | 性别   |
+ +--------+-------------+-----------+--------+
+ |      1 | 20155093126 | 夏滨洲    | 男     |
+ |      2 | 20175083029 | 柳露露    | 女     |
+ |      3 | 20175085042 | 李晓博    | 女     |
+ |      4 | 20175101001 | 陈浩鹏    | 男     |
+ |      5 | 20175101002 | 杨德森    | 男     |
+ +--------+-------------+-----------+--------+
+ 5 rows in set (0.01 sec)
+</code></pre>
+<p> <em>登陆用户数据库服务器(root) -&gt; 选择数据库(sys) -&gt; 选择数据表(2017_students)</em></p>
+</li>
+<li><p>如何创建数据库   (create)<br><code>CREATE DATABASE test;</code><br><code>show databases;</code></p>
+</li>
+<li><p>如何创建数据表   (create)</p>
+<pre><code class="sql"> CREATE TABLE pet(
+     name VARCHAR(20),
+     owner VARCHAR(20),
+     sex CHAR(1)
+ );
+</code></pre>
+</li>
+<li><p>如何删除数据表   (DROP)<br><code>DROP TABLE users;</code></p>
+</li>
+<li><p>查看数据表结构   (desc 或 describe)</p>
+<pre><code class="sql"> mysql&gt; describe pet;
+ +-------+-------------+------+-----+---------+-------+
+ | Field | Type        | Null | Key | Default | Extra |
+ +-------+-------------+------+-----+---------+-------+
+ | name  | varchar(20) | YES  |     | NULL    |       |
+ | owner | varchar(20) | YES  |     | NULL    |       |
+ | sex   | char(1)     | YES  |     | NULL    |       |
+ +-------+-------------+------+-----+---------+-------+
+ 3 rows in set (0.01 sec)
+</code></pre>
+</li>
+<li><p>如何退出数据库服务器 (exit)<br><code>exit</code></p>
+</li>
+<li><p>增删改查(INSERT INTO)</p>
+<ol>
+<li><p>增</p>
+<pre><code class="sql"> INSERT INTO pet VALUES(&quot;James&quot;,&quot;RJman&quot;,&quot;m&quot;);
+ INSERT INTO pet VALUES(&quot;Tom&quot;,&quot;Lee&quot;,&quot;m&quot;);
+ INSERT INTO pet VALUES(&quot;Jery&quot;,&quot;Joe&quot;,&quot;f&quot;);
+ INSERT INTO pet VALUES(&quot;Mark&quot;,&quot;Sun&quot;,&quot;f&quot;);
+</code></pre>
+</li>
+<li><p>删</p>
+<pre><code class="sql"> DELETE FROM pet WHERE owner = &#39;RJman&#39;;
+</code></pre>
+</li>
+<li><p>改</p>
+<pre><code class="sql"> UPDATE pet SET name = &quot;Jack&quot; WHERE OWNER = &quot;Joe&quot;;
+</code></pre>
+</li>
+<li><p>查</p>
+<pre><code class="sql"> SELECT * FROM pet;
+</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="第四章：MySQL常用数据字段类型"><a href="#第四章：MySQL常用数据字段类型" class="headerlink" title="第四章：MySQL常用数据字段类型"></a>第四章：MySQL常用数据字段类型</h2><p><a href="https://www.runoob.com/mysql/mysql-data-types.html" target="_blank" rel="noopener">常用数据类型_菜鸟教程</a></p>
+<ol>
+<li>数值<ol>
+<li>整数型(字节)<br> TINEINT(1)、SMALLINT(2)、MEDIUMINT(3)、<strong><em>INT/INTEGER(4)</em></strong>、BIGINT(8)</li>
+<li>浮点数(字节)<br> <strong><em>FLOAT(4)、DOUBLE(8)</em></strong>、<strong>DECIMAL</strong></li>
+</ol>
+</li>
+<li><strong><em>日期/时间(字节)</em></strong><ul>
+<li>DATE 3 YYYY-MM-DD 日期值</li>
+<li>TIME 3 HH:MM:SS 时间值或持续时间</li>
+<li>YEAR 1 YYYY 年份值</li>
+<li>DATETIME YYYY-MM-DD HH:MM:SS 混合</li>
+<li>TIMESTAMP 4 时间戳</li>
+</ul>
+</li>
+<li>字符串类型<ul>
+<li>CHAR 定长字符串</li>
+<li>VARCHAR 变长字符串</li>
+<li>TINYBLOB  短二进制字符串</li>
+<li>MEDIUMBLOB 中长进制字符串</li>
+<li>BLOB 长二进制字符串</li>
+<li>LONGBLOB 极长二进制字符串</li>
+<li>TINYTEXT 短文本</li>
+<li>MEDUIMTEXT 中长文本</li>
+<li><strong><em>TEXT 长文本</em></strong></li>
+<li>LONGTEXT 极长文本</li>
+</ul>
+</li>
+</ol>
+<h2 id="第五章：MySqL建表约束"><a href="#第五章：MySqL建表约束" class="headerlink" title="第五章：MySqL建表约束"></a>第五章：MySqL建表约束</h2><ol>
+<li><p>主键约束(primary key)<br> 能够<strong>唯一</strong>确定一张表中的一条<strong>记录</strong>，字段值不重复且不为<strong>空</strong>(NULL)<br> <em>联合主键</em>：主键为多个字段，要求字段值不同时重复或为空(NULL)</p>
+<pre><code class="sql"> CREATE TABLE users(
+     id int,
+     name VARCHAR(20),
+     PRIMARY KEY(id)
+ );
+ mysql&gt; describe users;
+ +-------+-------------+------+-----+---------+-------+
+ | Field | Type        | Null | Key | Default | Extra |
+ +-------+-------------+------+-----+---------+-------+
+ | id    | int(11)     | NO   | PRI | NULL    |       |
+ | name  | varchar(20) | YES  |     | NULL    |       |
+ +-------+-------------+------+-----+---------+-------+
+ 2 rows in set (0.00 sec)
+</code></pre>
+<p> <strong>建表后</strong>添加和删除主键约束    (ALTER)</p>
+<pre><code class="sql"> --- 添加主键 add
+ ALTER TABLE pet add PRIMARY KEY(name);
+ desc pet;
+ --- 删除主键 drop
+ ALTER TABLE pet DROP PRIMARY KEY;
+ desc pet;
+ --- 修改字段 modify
+ ALTER TABLE pet MODIFY name VARCHAR(20) PRIMARY KEY;
+</code></pre>
+</li>
+<li><p>自增约束(auto_increment)<br> 添加记录时,当设定的自增字段没有传入值时，可以自增</p>
+</li>
+<li><p><strong>外键约束</strong><br> 涉及到两个表(父表,子表 或 主表,副表)</p>
+<pre><code class="sql"> --- 主表room
+ CREATE TABLE room(
+     id int PRIMARY KEY,
+     building int
+ );
+ --- 副表users
+ CREATE TABLE users(
+     id int PRIMARY KEY,
+     name VARCHAR(20),
+     dormitory int,
+     FOREIGN KEY(dormitory) REFERENCES room(id)
+ );
+</code></pre>
+<ol>
+<li>副表的字段内容<strong>参照</strong>主表,则副表无法使用主表不存在的值</li>
+<li>主表中的记录被副表<strong>引用</strong>,则主表记录不能被删除</li>
+<li>无法创建外键的原因:<ul>
+<li>字段类型或大小是否严格一致</li>
+<li>试图设置外键的字段没有建立起索引，或者不是一个primary key（主键）</li>
+<li>检查表的引擎类型是否一致</li>
+<li>外键的名字不能重复</li>
+<li>可能设置为外键设置了一个默认值，如default=0</li>
+<li>语法错误等…</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>唯一约束(unique)<br> 修饰的字段值不能重复<br> 当多个字段添加唯一约束时,类似联合主键，字段值不能同时重复<br> <code>ALTER TABLE pet MODIFY name VARCHAR(20) UNIQUE;</code><br> 删除唯一约束<br> <code>ALTER TABLE pet drop index owner;</code></li>
+<li>非空约束<br> 修饰的字段值不能为空(NULL)<br> <code>ALTER TABLE pet MODIFY name VARCHAR(20) not null;</code><br> <strong>注意</strong><pre><code> 当没有创建主键约束时，若对已经添加唯一约束的字段添加非空约束
+ 则该字段自动升级为主键约束
+</code></pre></li>
+<li>默认约束<br> 当插入字段值时，如果没有传值，则会使用默认值<br> <code>CREATE TABLE users(age int default 0);</code></li>
+</ol>
+<h2 id="第六章：数据库的三大设计范式"><a href="#第六章：数据库的三大设计范式" class="headerlink" title="第六章：数据库的三大设计范式"></a>第六章：数据库的三大设计范式</h2><ol>
+<li>第一范式 1NF<ul>
+<li>数据表中所有字段都是不可分割的原子值域</li>
+<li>如地址字段，若其内容客观上还可以分割，不符合第一范式</li>
+</ul>
+</li>
+<li><p>第二范式 2NF</p>
+<ul>
+<li>前提：满足第一范式</li>
+<li>除主键外的每一列都必须完全依赖于主键</li>
+<li>如果不完全依赖，只可能发生在联合主键的情况</li>
+<li><p>如订单表</p>
+<pre><code class="sql">  create table myorder(
+      product_id INT,
+      customer_id INT,
+      product_name varchar(20),
+      customer_name varchar(20),
+      PRIMARY KEY(product_id,customer_id) 
+  );
+</code></pre>
+<p>—问题？<br>—除主键外其它列，主依赖于主键的部分字段<br>—解决方法-&gt;<strong>拆表</strong></p>
+<pre><code class="sql">create table myorder(
+order_id INT PRIMARY KEY,
+product_id INT,
+customer_id INT
+);
+CREATE TABLE product(
+  id INT PRIMARY KEY,
+  name VARCHAR(20)
+);
+CREATE TABLE customer(
+  id INT PRIMARY KEY,
+  name VARCHAR(20)
+);
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>第三范式 3NF</p>
+<ul>
+<li>前提：满足第二范式</li>
+<li>除开主键外的其它列不能有传递依赖关系(删除冗余)</li>
+</ul>
+</li>
+</ol>
+<p><em>第一范式1NF：字段不可分割</em><br><em>第二范式2NF：1NF+除主键外其他列完全依赖主键</em><br><em>第三范式3NF：2NF+除主键外其它列不能有传递依赖关系</em></p>
+<h2 id="第七章：数据库查询练习"><a href="#第七章：数据库查询练习" class="headerlink" title="第七章：数据库查询练习"></a>第七章：数据库查询练习</h2><p>第一部分:</p>
+<blockquote>
+<p>AND,OR,IN 关系运算<br>DISTINCT,LIKE 去重、相似字符<br>max,sum,count,year(now()) 基础函数部分<br>ASC、DESC 排序<br>子查询<br>第二部分:</p>
+</blockquote>
+<ol>
+<li><p>创建源数据表<br> <a href="SelectTest.sql">数据准备源码</a></p>
+<ul>
+<li><p>student学生表(Sno,Sname,Ssex,S)</p>
+<pre><code class="sql">  CREATE TABLE student(
+      Sno VARCHAR(20) PRIMARY KEY,
+      Sname VARCHAR(20) NOT NULL,
+      Ssex VARCHAR(10) NOT NULL,
+      Sbirth DATETIME,
+      Sclass VARCHAR(20)
+  );
+</code></pre>
+</li>
+<li><p>teacher教师表(Tno,Tname,Tsex,Tbirth,T,Tdept)</p>
+<pre><code class="sql">  CREATE TABLE teacher(
+      Tno VARCHAR(20) PRIMARY KEY,
+      Tname VARCHAR(10) NOT NULL,
+      Tsex VARCHAR(10) NOT NULL,
+      Prof VARCHAR(20) NOT NULL,
+      Tdept VARCHAR(20) NOT NULL
+  );
+</code></pre>
+</li>
+<li><p>course课程表(Cno,Cname,Tno)</p>
+<pre><code class="sql">  CREATE TABLE course(
+      Cno VARCHAR(20) PRIMARY KEY,
+      Cname VARCHAR(20) NOT NULL,
+      Tno VARCHAR(20) NOT NULL,
+      FOREIGN KEY(Tno) REFERENCES teacher(Tno)
+  );
+</code></pre>
+</li>
+<li><p>score成绩表(Sno,Cno,Grade)</p>
+<pre><code class="sql">  CREATE TABLE score(
+      id int PRIMARY KEY,
+      Sno VARCHAR(20),
+      Cno VARCHAR(20) NOT NULL,
+      Grade DECIMAL,
+      FOREIGN KEY(Sno) REFERENCES student(Sno),
+      FOREIGN KEY(Cno) REFERENCES course(Cno)
+  );
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>基础查询</p>
+<ul>
+<li><p>查询出生在1990-2000年之间的学生   (BETWEEN、AND)</p>
+<pre><code class="sql">  SELECT * from student 
+  WHERE Date(Sbirth) BETWEEN &#39;1990-01-01&#39; AND &#39;2000-01-01&#39;;
+
+  +-----+-------+------+---------------------+--------+
+  | Sno | Sname | Ssex | Sbirth              | Sclass |
+  +-----+-------+------+---------------------+--------+
+  | 101 | RJman | m    | 1999-06-18 00:00:00 | rg     |
+  | 102 | Joe   | m    | 1999-02-02 00:00:00 | xg     |
+  | 103 | Lee   | m    | 1998-05-06 00:00:00 | xg     |
+  | 104 | Sun   | m    | 1997-07-18 00:00:00 | xg     |
+  | 666 | ZTZ   | f    | 1991-09-15 00:00:00 | bzmh   |
+  +-----+-------+------+---------------------+--------+
+  5 rows in set (0.00 sec)
+
+</code></pre>
+</li>
+<li><p>查询班级在xg,rg的学生数量 (IN)</p>
+<pre><code class="sql">  SELECT count(*) FROM student WHERE Sclass in(&#39;xg&#39;,&#39;rg&#39;);
+</code></pre>
+</li>
+<li><p>查询Head系和Tail系的教师  (OR)</p>
+<pre><code class="sql">  SELECT * FROM teacher WHERE Tdept = &#39;Head&#39; OR Tdept = &#39;Tail&#39;;
+</code></pre>
+</li>
+<li><p>查询所有班级即不重复的班级值 (<strong>DISTINCT</strong>),去重复值</p>
+<pre><code class="sql">  SELECT DISTINCT Sclass FROM student;
+
+  +--------+
+  | Sclass |
+  +--------+
+  | rg     |
+  | xg     |
+  | bzmh   |
+  +--------+
+  3 rows in set (0.00 sec)
+</code></pre>
+</li>
+<li><p>查询学生姓名并设定当前年份为其出生年份    (YEAR(NOW()))</p>
+<pre><code class="sql">  SELECT Sname,YEAR(NOW()) as BirthYear FROM student;
+</code></pre>
+</li>
+<li><p>查询学生获得的总分数和  (sum)</p>
+<pre><code class="sql">  SELECT sum(Grade) as 总分数 FROM course;
+</code></pre>
+</li>
+<li><p>查询student数据表中男生的数量 (count)</p>
+<pre><code class="sql">  SELECT count(*) as 男生数量 FROM student WHERE Ssex = &#39;m&#39;;  
+</code></pre>
+</li>
+<li><p>查询Sname包含_字符的记录  (LIKE,*,%,)</p>
+<pre><code class="sql">  SELECT * from student WHERE Sname like &#39;%\_%&#39;;
+</code></pre>
+</li>
+<li><p>以Sno学号升/降序的方式查询student数据表  (<strong>ASC,DESC</strong>)</p>
+<pre><code class="sql">  SELECT * FROM student ORDER BY Sno ASC;
+  SELECT * FROM student ORDER BY Sno DESC;
+</code></pre>
+</li>
+<li><p>以Sage年龄升序、Sno学号降序来查询student数据表 (优先级)<br>ASC作为<em>默认值</em>一般可不写,但在使用两个字段以上排序时必须要写</p>
+<pre><code class="sql">  SELECT * FROM student ORDER BY Sname ASC,Sno DESC;
+</code></pre>
+</li>
+<li><p>查询出生年份最大的学生学号和姓名  (<em>子查询</em>或者排序)</p>
+<pre><code class="sql">  1. 子查询
+  SELECT Sno,Sname FROM student
+  WHERE Sbirth = Date((SELECT max(Date(Sbirth)) FROM student));
+  2. 排序
+  SELECT Sno,Sname FROM student
+  ORDER BY Sbirth DESC
+  LIMIT 0,1;
+
+  +-----+-------+
+  | Sno | Sname |
+  +-----+-------+
+  | 101 | RJman |
+  +-----+-------+
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>进阶查询</p>
+<ul>
+<li><p>查询score表中所有学生的平均成绩  (GROUP BY)</p>
+<pre><code class="sql">SELECT Sno,avg(Grade) as 平均成绩 FROM score GROUP BY Sno;
+
++------+--------------+
+| Sno  | 平均成绩     |
++------+--------------+
+| 101  |      92.3333 |
+| 102  |      78.0000 |
+| 103  |      78.6667 |
+| 104  |      69.0000 |
+| 206  |      92.6667 |
+| 266  |      75.6667 |
+| 666  |      76.6667 |
++------+--------------+
+7 rows in set (0.00 sec)
+</code></pre>
+</li>
+<li><p>查询至少有两名学生考试并且课程号是以3结尾的课程平均分数</p>
+<pre><code class="sql">SELECT Cno,avg(Grade),count(*) FROM score
+GROUP BY Cno HAVING count(Cno) &gt;= 2
+AND Cno LIKE &#39;%3&#39;;
+
++------+------------+----------+
+| Cno  | avg(Grade) | count(*) |
++------+------------+----------+
+| 0-03 |    74.5714 |        7 |
++------+------------+----------+
+1 row in set (0.00 sec)
+</code></pre>
+</li>
+<li><p>多表查询</p>
+<pre><code class="sql">---多表查询,查询student 和 score表的Sname,Cno,Grade
+SELECT Sname,Cno,Grade FROM student,score
+WHERE student.Sno = score.Sno;
+---多表查询,查询student 和 score表的Sno,Cname,Grade
+SELECT Sno,Cname,Grade FROM course,score
+WHERE course.Cno = score.Cno;
+---多表查询,查询所有学生的Sname,Cname,Grade
+SELECT Sname,Cname,Grade FROM student,score,course
+WHERE student.Sno = score.Sno
+AND course.Cno = score.Cno;
+
++-------+---------+-------+
+| Sname | Cname   | Grade |
++-------+---------+-------+
+| RJman | Russian |    99 |
+| Joe   | Russian |    88 |
+| Lee   | Russian |    81 |
+| Sun   | Russian |    84 |
+| WNM   | Russian |    96 |
+| ZQD   | Russian |    86 |
+| ZTZ   | Russian |    78 |
+| RJman | English |    88 |
+| Joe   | English |    69 |
+| Lee   | English |    79 |
+| Sun   | English |    64 |
+| WNM   | English |    99 |
+| ZQD   | English |    67 |
+| ZTZ   | English |    89 |
+| RJman | Chinese |    90 |
+| Joe   | Chinese |    77 |
+| Lee   | Chinese |    76 |
+| Sun   | Chinese |    59 |
+| WNM   | Chinese |    83 |
+| ZQD   | Chinese |    74 |
+| ZTZ   | Chinese |    63 |
++-------+---------+-------+
+21 rows in set (0.00 sec)
+</code></pre>
+</li>
+<li><p>查询’xg’班学生每门课的平均分</p>
+<pre><code class="sql">  SELECT * FROM student WHERE Sclass = &#39;xg&#39;;
+  SELECT Sno FROM student WHERE Sclass = &#39;xg&#39;;
+  ---子查询结合分组
+  SELECT Cno,avg(Grade) FROM score
+  WHERE Sno IN(SELECT Sno FROM student WHERE SClass = &#39;xg&#39;)
+  GROUP BY Cno;
+</code></pre>
+</li>
+<li><p>查询选修’0-01’课程的成绩高于’101’号学生’0-01’成绩的所有同学记录</p>
+<pre><code class="sql">  SEL
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2019/07/12/RedHat/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://c-ssl.duitang.com/uploads/item/201907/12/20190712211031_Rc333.jpeg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://c-ssl.duitang.com/uploads/item/201907/12/20190712211031_Rc333.jpeg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                RedHat</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2019/07/12/LinuxOrder/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://c-ssl.duitang.com/uploads/item/201907/12/20190712220517_4AWhK.jpeg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://c-ssl.duitang.com/uploads/item/201907/12/20190712220517_4AWhK.jpeg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                LinuxOrder</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://rjman.top" class="profile gravatar"><img src="https://b-ssl.duitang.com/uploads/item/201703/05/20170305112110_2GWUr.jpeg" itemprop="image" alt="RJman" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://rjman.top" itemprop="url" rel="author">RJman</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>很关键</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 RJman<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">RJman部落阁</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/honjun" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=306714577&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/技术/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/生活/">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  生活
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/资源/">
+                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                  资源
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/转载/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags/悦读/">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/bangumi/">
+                  <i class="fa fa-film faa-vertical" aria-hidden="true"></i>
+                  番组
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/tags/图集/">
+                  <i class="fa fa-photo" aria-hidden="true"></i>
+                  图集
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友人帐
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/donate/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
+            赞赏
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+              <li>
+                <a href="/lab/">
+                  <i class="fa fa-cogs" aria-hidden="true"></i>
+                  Lab
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/client/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
+            客户端
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/atom.xml">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
+            RSS
+          </span>
+        </a>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<div class="aplayer"
+
+    data-id="2660651585"
+
+    data-server="netease"
+
+    data-type="playlist"
+
+    data-fixed="true"
+
+    data-autoplay="false"
+
+    data-loop="all"
+
+    data-order="random"
+
+    data-preload="auto"
+
+    data-volume="0.7"
+
+    data-mutex="true"
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2/dist/Meting.min.js"></script>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/nico.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>

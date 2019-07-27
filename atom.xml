@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>RJman&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://306714577.github.io/"/>
+  <updated>2019-07-23T05:31:02.108Z</updated>
+  <id>https://306714577.github.io/</id>
+  
+  <author>
+    <name>RJman</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>读取文件信息作为视频播放起始时间</title>
+    <link href="https://306714577.github.io/2019/07/13/%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E4%BD%9C%E4%B8%BA%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E8%B5%B7%E5%A7%8B%E6%97%B6%E9%97%B4/"/>
+    <id>https://306714577.github.io/2019/07/13/读取文件信息作为视频播放起始时间/</id>
+    <published>2019-07-13T01:39:36.000Z</published>
+    <updated>2019-07-23T05:31:02.108Z</updated>
+    
+    <summary type="html">
+    
+      QT读取文件信息作为视频播放起始时间
+    
+    </summary>
+    
+      <category term="技术" scheme="https://306714577.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="QT" scheme="https://306714577.github.io/tags/QT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RedHat</title>
+    <link href="https://306714577.github.io/2019/07/12/RedHat/"/>
+    <id>https://306714577.github.io/2019/07/12/RedHat/</id>
+    <published>2019-07-12T14:17:08.000Z</published>
+    <updated>2019-07-12T16:19:16.558Z</updated>
+    
+    <summary type="html">
+    
+      RedHat 镜像的安装和配置
+    
+    </summary>
+    
+      <category term="技术" scheme="https://306714577.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="linux" scheme="https://306714577.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL</title>
+    <link href="https://306714577.github.io/2019/07/12/MySQL/"/>
+    <id>https://306714577.github.io/2019/07/12/MySQL/</id>
+    <published>2019-07-12T14:15:23.000Z</published>
+    <updated>2019-07-12T16:19:04.547Z</updated>
+    
+    <summary type="html">
+    
+      MySQL学习笔记
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://306714577.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="MySQL" scheme="https://306714577.github.io/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LinuxOrder</title>
+    <link href="https://306714577.github.io/2019/07/12/LinuxOrder/"/>
+    <id>https://306714577.github.io/2019/07/12/LinuxOrder/</id>
+    <published>2019-07-12T14:13:26.000Z</published>
+    <updated>2019-07-12T16:18:44.024Z</updated>
+    
+    <summary type="html">
+    
+      linux的常用命令学习
+    
+    </summary>
+    
+      <category term="笔记" scheme="https://306714577.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Linux" scheme="https://306714577.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo</title>
+    <link href="https://306714577.github.io/2019/07/12/hexo/"/>
+    <id>https://306714577.github.io/2019/07/12/hexo/</id>
+    <published>2019-07-12T14:10:23.000Z</published>
+    <updated>2019-07-12T16:18:51.506Z</updated>
+    
+    <summary type="html">
+    
+      Hexo搭建个人博客及配置
+    
+    </summary>
+    
+      <category term="技术" scheme="https://306714577.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="hexo" scheme="https://306714577.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>QTAV的编译</title>
+    <link href="https://306714577.github.io/2019/07/12/QTAV%E7%BC%96%E8%AF%91%E6%96%B9%E6%B3%95/"/>
+    <id>https://306714577.github.io/2019/07/12/QTAV编译方法/</id>
+    <published>2019-07-12T08:36:01.812Z</published>
+    <updated>2019-07-16T07:17:31.027Z</updated>
+    
+    <summary type="html">
+    
+      QTAV的编译
+    
+    </summary>
+    
+      <category term="技术" scheme="https://306714577.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="QT" scheme="https://306714577.github.io/tags/QT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Theme-Sakura</title>
+    <link href="https://306714577.github.io/2019/07/12/Hexo-Theme-Sakura/"/>
+    <id>https://306714577.github.io/2019/07/12/Hexo-Theme-Sakura/</id>
+    <published>2019-07-12T05:50:55.100Z</published>
+    <updated>2019-07-12T16:18:21.777Z</updated>
+    
+    <summary type="html">
+    
+      Sakura主题使用教程
+    
+    </summary>
+    
+      <category term="技术" scheme="https://306714577.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="test" scheme="https://306714577.github.io/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo新建博客</title>
+    <link href="https://306714577.github.io/2019/07/12/hello-world/"/>
+    <id>https://306714577.github.io/2019/07/12/hello-world/</id>
+    <published>2019-07-12T05:50:55.027Z</published>
+    <updated>2019-07-12T16:17:49.249Z</updated>
+    
+    <summary type="html">
+    
+      hexo新建博客
+    
+    </summary>
+    
+      <category term="技术" scheme="https://306714577.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="hexo" scheme="https://306714577.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
